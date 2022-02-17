@@ -3,6 +3,8 @@ nginx/logs/*
 nginx/conf.d/*
 !nginx/conf.d/default.conf
 mongo/data/*
+php/log/
+php/php7.4/logs
 .idea
 
 www/*
