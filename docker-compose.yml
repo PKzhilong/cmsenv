@@ -78,7 +78,7 @@ services:
     restart: on-failure
 
   rabbitmq:
-    image: rabbitmq:3.7.2-management
+    image: rabbitmq:3.9.20
     expose:
       - 5672
       - 15672
