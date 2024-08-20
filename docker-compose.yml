@@ -29,7 +29,6 @@ services:
     depends_on:
       - mysql
       - redis
-      - rabbitmq
     expose:
       - 9000
     ports:
@@ -53,7 +52,7 @@ services:
       TZ: Asia/Shanghai
     restart: on-failure
   mysql:
-    image: mariadb
+    image: mariadb:10.5.5
     env_file: .env
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
@@ -77,20 +76,6 @@ services:
       TZ: Asia/Shanghai
     restart: on-failure
 
-  rabbitmq:
-    image: rabbitmq:3.9.20
-    expose:
-      - 5672
-      - 15672
-    ports:
-      - "15672:15672"
-    restart: on-failure
-    environment:
-      TZ: Asia/Shanghai
-      RABBITMQ_DEFAULT_USER: guest
-      RABBITMQ_DEFAULT_PASS: guest
-      # networks:
-      # - common
   #     RABBITMQ_DEFAULT_VHOST: /
 #  elasticsearch:
 #    image: elasticsearch:7.6.0
